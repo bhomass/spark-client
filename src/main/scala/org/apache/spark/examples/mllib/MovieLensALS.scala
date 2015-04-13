@@ -98,10 +98,12 @@ object MovieLensALS {
 
   def run(params: Params) {
     val conf = new SparkConf().setAppName(s"MovieLensALS with $params")
+    .setMaster("local[2]")
     if (params.kryo) {
       conf.registerKryoClasses(Array(classOf[mutable.BitSet], classOf[Rating]))
         .set("spark.kryoserializer.buffer.mb", "8")
     }
+    
     val sc = new SparkContext(conf)
 
     Logger.getRootLogger.setLevel(Level.WARN)

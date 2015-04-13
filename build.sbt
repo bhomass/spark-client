@@ -1,6 +1,6 @@
 import AssemblyKeys._
 
-name := "spark-examples"
+name := "spark-client"
 
 lazy val commonSettings = Seq(
   version := "1.0",

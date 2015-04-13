@@ -2,3 +2,9 @@ target/
 .classpath
 .project
 
+/bin
+.settings/
+.cache
+src/main/resources/core-site.xml
+test.csv
+
