@@ -31,7 +31,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  */
 public class Driver {
 //	private static final String HOUR = "2014-09-18";
-	private static final String INPUTFILEPATH = "/user/bruce/custoemrorder.csv";
+	private static final String INPUTFILEPATH = "/user/bruce/customerorder.csv";
 	private static final String OUTPUTFILEPATH = "/user/bruce/hfiles/";
 	private static final String TABLENAME = "customerorder";
 
