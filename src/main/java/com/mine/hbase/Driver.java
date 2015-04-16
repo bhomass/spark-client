@@ -60,7 +60,7 @@ public class Driver {
     conf.set("fs.file.impl",
             org.apache.hadoop.fs.LocalFileSystem.class.getName()
         );
-    conf.set("zookeeper.znode.parent", "/hbase-unsecure");
+//    conf.set("zookeeper.znode.parent", "/hbase-unsecure");	// need this for ambari cluster
     // Load hbase-site.xml 
     HBaseConfiguration.addHbaseResources(conf);
 

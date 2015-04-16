@@ -73,6 +73,7 @@ public class HBaseKVMapper extends
     	switch (type){
     		case DataRecord.CUSTOMERORDERTYPE:
     			compositeKey = customerId + ":" + DataRecord.CUSTOMERORDERTYPE;
+    		    hKey.set(compositeKey.getBytes());
     			String name = fields[2];
     			kv = new KeyValue(hKey.get(), CATS_COL_FAM,
     			          HColumnEnum.SRV_COL_NAME.getColumnName(), name.getBytes());
@@ -88,6 +89,7 @@ public class HBaseKVMapper extends
     			break;
     		case DataRecord.ORDERRECORDTYPE:
      			compositeKey = customerId + ":" + DataRecord.ORDERRECORDTYPE + ":" + orderNumber;
+    		    hKey.set(compositeKey.getBytes());
      			// salesdate
      			String salesdate = fields[6];
 				kv = new KeyValue(hKey.get(), CATS_COL_FAM,
@@ -96,7 +98,8 @@ public class HBaseKVMapper extends
     			break;
     		case DataRecord.SHIPPINGRECORDTYPE:
     			compositeKey = customerId + ":" + DataRecord.ORDERRECORDTYPE + ":" + orderNumber +":" + DataRecord.SHIPPINGRECORDTYPE +":" + locationNumber;
-    			String shiptoline1 = fields[8];
+    		    hKey.set(compositeKey.getBytes());
+    		    String shiptoline1 = fields[8];
     			kv = new KeyValue(hKey.get(), CATS_COL_FAM,
 				          HColumnEnum.SRV_COL_SHIPTOLINE1.getColumnName(), shiptoline1.getBytes());
 				context.write(hKey, kv);
@@ -120,6 +123,7 @@ public class HBaseKVMapper extends
     		case DataRecord.LINEITEMRECORDTYPE:
     			String lineItemNumber = fields[12];
     			compositeKey = customerId + ":" + DataRecord.ORDERRECORDTYPE + ":" + orderNumber +":" + DataRecord.LINEITEMRECORDTYPE +":" + locationNumber + ":" + lineItemNumber;
+    		    hKey.set(compositeKey.getBytes());
     			String itemnumber = fields[13];
     			kv = new KeyValue(hKey.get(), CATS_COL_FAM,
 				          HColumnEnum.SRV_COL_ITEMNUMBER.getColumnName(), itemnumber.getBytes());
