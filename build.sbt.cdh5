@@ -1,0 +1,46 @@
+name := "hadoop-demos"
+
+version := "1.0"
+
+// scalaOptions := Seq("-encoding", "utf8")
+
+scalaVersion := "2.10.4"
+
+scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
+
+libraryDependencies += "org.json4s" %% "json4s-native" % "3.2.9"
+
+// http://www.cloudera.com/content/cloudera/en/documentation/cdh5/latest/CDH-Version-and-Packaging-Information/cdhvd_cdh5_maven_repo.html
+libraryDependencies ++= Seq(
+  //"org.apache.spark" %% "spark-core" % "1.2.0-cdh5.3.2",
+  //"org.apache.hadoop" % "hadoop-client" % "2.5.0-mr1-cdh5.3.2" exclude("org.eclipse.jetty", "*"),
+  "org.apache.hadoop" % "hadoop-yarn-client" % "2.5.0-cdh5.3.2" exclude("org.eclipse.jetty", "*"),
+  "org.apache.hbase" % "hbase-client" % "0.98.6-cdh5.3.2", 
+  "org.apache.hbase" % "hbase-common" % "0.98.6-cdh5.3.2",
+  "org.apache.hbase" % "hbase-hadoop-compat" % "0.98.6-cdh5.3.2",
+  // "org.apache.hbase" % "hbase-it" % "0.98.6-cdh5.3.2", 
+  "org.apache.hbase" % "hbase-hadoop2-compat" % "0.98.6-cdh5.3.2",
+  //"org.apache.hbase" % "hbase-prefix-tree" % "0.98.6-cdh5.3.2", 
+  //"org.apache.hbase" % "hbase-protocol" % "0.98.6-cdh5.3.2", 
+  "org.apache.hbase" % "hbase-server" % "0.98.6-cdh5.3.2",
+  //"org.apache.hbase" % "hbase-shell" % "0.98.6-cdh5.3.2", 
+  //"org.apache.hbase" % "hbase-testing-util" % "0.98.6-cdh5.3.2", 
+  "org.apache.hbase" % "hbase-thrift" % "0.98.6-cdh5.3.2",
+  "org.apache.hadoop" % "hadoop-hdfs" % "2.5.0-cdh5.3.2" exclude("org.eclipse.jetty", "*"),
+  "org.apache.hadoop" % "hadoop-common" % "2.5.0-cdh5.3.2",
+  "org.apache.hadoop" % "hadoop-mapreduce-client-core" % "2.5.0-cdh5.3.2",
+  "com.github.scopt" %% "scopt" % "3.2.0",
+  "org.apache.commons" % "commons-lang3" % "3.3.2",  
+  "org.apache.commons" % "commons-math3" %"3.2",
+  "commons-lang" % "commons-lang" % "2.6"
+)
+
+libraryDependencies += "org.reflections" % "reflections" % "0.9.8"
+
+libraryDependencies += "com.typesafe.scala-logging" %% "scala-logging-api" % "2.1.2"
+
+libraryDependencies += "com.typesafe.scala-logging" %% "scala-logging-slf4j" % "2.1.2"
+
+resolvers += "CDH5 repository" at "https://repository.cloudera.com/artifactory/repo/"
+
+
