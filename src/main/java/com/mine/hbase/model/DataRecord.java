@@ -164,7 +164,7 @@ public class DataRecord {
 		DataRecord record = new DataRecord(LINEITEMRECORDTYPE);
 		record.customerId = customer.getCustomerid();
 		record.ordernumber = order.getOrderNumber();
-		record.locationnumber = locationNumber + "'";
+		record.locationnumber = locationNumber + "";
 		record.lineItemNumber = lineItemNumber + "";
 		record.itemnumber = lineItem.getItemNumber();
 		record.quantity = lineItem.getQuantity() + "";

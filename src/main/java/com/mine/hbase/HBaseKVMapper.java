@@ -62,7 +62,7 @@ public class HBaseKVMapper extends
       return;
     }
 
-    String customerId = fields[0];
+    String customerId = fields[1];
 	String orderNumber = fields[5];
 	String locationNumber = fields[7];
     // Get game offset in seconds from tip-off
@@ -121,18 +121,18 @@ public class HBaseKVMapper extends
 				context.write(hKey, kv);
     			break;
     		case DataRecord.LINEITEMRECORDTYPE:
-    			String lineItemNumber = fields[12];
+    			String lineItemNumber = fields[13];
     			compositeKey = customerId + ":" + DataRecord.ORDERRECORDTYPE + ":" + orderNumber +":" + DataRecord.LINEITEMRECORDTYPE +":" + locationNumber + ":" + lineItemNumber;
     		    hKey.set(compositeKey.getBytes());
-    			String itemnumber = fields[13];
+    			String itemnumber = fields[14];
     			kv = new KeyValue(hKey.get(), CATS_COL_FAM,
 				          HColumnEnum.SRV_COL_ITEMNUMBER.getColumnName(), itemnumber.getBytes());
 				context.write(hKey, kv);
-    			String quantity = fields[14];
+    			String quantity = fields[15];
     			kv = new KeyValue(hKey.get(), CATS_COL_FAM,
 				          HColumnEnum.SRV_COL_QUANTITY.getColumnName(), quantity.getBytes());
 				context.write(hKey, kv);
-    			String price = fields[15];
+    			String price = fields[16];
     			kv = new KeyValue(hKey.get(), CATS_COL_FAM,
 				          HColumnEnum.SRV_COL_PRICE.getColumnName(), price.getBytes());
 				context.write(hKey, kv);

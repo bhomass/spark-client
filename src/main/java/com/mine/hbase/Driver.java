@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.KeyValue;
@@ -31,8 +32,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  */
 public class Driver {
 //	private static final String HOUR = "2014-09-18";
-	private static final String INPUTFILEPATH = "/user/bruce/customerorder.csv";
-	private static final String OUTPUTFILEPATH = "/user/bruce/hfiles/";
+	private static final String INPUTFILEPATH = "/user/hbase/customerorder.csv";
+	private static final String OUTPUTFILEPATH = "/user/hbase/hfiles/";
 	private static final String TABLENAME = "customerorder";
 
   public static void main(String[] args) throws Exception {	
@@ -84,6 +85,7 @@ public class Driver {
     boolean success = job.waitForCompletion(true);
     
     if (success) {
+    	FileUtil.chmod(OUTPUTFILEPATH, "a+w", true);
     	LoadIncrementalHFiles lihf = null;
     	try {
     		lihf = new LoadIncrementalHFiles (conf);

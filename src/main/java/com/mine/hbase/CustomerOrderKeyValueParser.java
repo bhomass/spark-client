@@ -3,7 +3,7 @@ package com.mine.hbase;
 
 
 public class CustomerOrderKeyValueParser {
-	private static final int MAX = 15;
+	private static final int MAX = 16;
 	
 	public String[] parseLine(String line){
 		String[] fields = new String[MAX + 1];
