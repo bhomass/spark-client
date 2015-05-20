@@ -1,10 +1,10 @@
 target/
 .classpath
 .project
-
 /bin
-.settings/
+.settings
 .cache
 src/main/resources/core-site.xml
 test.csv
+.settings/org.scala-ide.sdt.core.prefs
 
